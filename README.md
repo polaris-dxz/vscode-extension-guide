@@ -48,7 +48,9 @@
 
 	具体详细说明请看[官方文档](https://code.visualstudio.com/api/references/extension-manifest)
 
+
 	```json
+	
 	{   
 
 		"name": "helloworld",// 项目名称
@@ -94,12 +96,14 @@
 			"@types/mocha": "^2.2.42"
 		}
 	}
-
+	
 	```
 
-**extension.js**
+extension.js
+
 
 	```javascript
+	
 	/**
 	* @param {vscode.ExtensionContext} context
 	 */
@@ -132,6 +136,7 @@
 		context.subscriptions.push(helloworld);
 		context.subscriptions.push(niubi);
 	}
+	
 	```
 
 ## 调试项目
@@ -148,16 +153,22 @@
 
 打包插件的话需要安装vsce。
 
+
 	```shell
+	
 	npm i -g vsce
+	
 	```
 
 重新编写你插件的README文档，然后在根目录打包后缀为`vsix` 的 vscode 插件。
 
+
 	```shell
+	
 	vsve package
 	# 如果不修改你插件的readme文档的话会报下面的错误
 	# Error: Make sure to edit the README.md file before you publish your extension.
+	
 	```
 
 ## 发布
@@ -168,10 +179,11 @@
 
 首先你要注册一个账号，并且获取一个token，然后在命令行输入以下命令就可以了，跟发布 npm 包基本是一样的，这里就不[多做介绍](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)了。 
 
-	```shell
-	vsce create-publisher xxxx
-	vsce publish
-	```
+
+```shell
+vsce create-publisher xxxx
+vsce publish
+```
 
 ## Enjoy It
 
