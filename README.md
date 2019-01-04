@@ -102,42 +102,40 @@
 extension.js
 
 
-	```javascript
-	
-	/**
-	* @param {vscode.ExtensionContext} context
-	 */
-	function activate(context) {
+```javascript
+/**
+* @param {vscode.ExtensionContext} context
+*/
+function activate(context) {
 
-	    // 使用控制台输出诊断信息
-		// 这里的代码只会在插件激活的时候执行一次
-		console.log('Congratulations, your extension "helloworld" is now active!');
+// 使用控制台输出诊断信息
+// 这里的代码只会在插件激活的时候执行一次
+console.log('Congratulations, your extension "helloworld" is now active!');
 
-		// 这个命令在 package.json 中的命令在这里定义
-		// 使用 registerCommand 方法来注册实现代码
-		// commandId 参数必须与 package.json 匹配
+// 这个命令在 package.json 中的命令在这里定义
+// 使用 registerCommand 方法来注册实现代码
+// commandId 参数必须与 package.json 匹配
 
-	    // 注册一个命令，命令名为 Hello World (与package.json 中对应)
-		let helloworld = vscode.commands.registerCommand('extension.helloWorld', function () {
-			// 每次执行命令的时候，都会执行这里的代码
+// 注册一个命令，命令名为 Hello World (与package.json 中对应)
+let helloworld = vscode.commands.registerCommand('extension.helloWorld', function () {
+	// 每次执行命令的时候，都会执行这里的代码
 
-			// 显示信息
-			vscode.window.showInformationMessage('Hello World');
-		});
+	// 显示信息
+	vscode.window.showInformationMessage('Hello World');
+});
 
-	    // 注册一个命令，命令名为 niubi (与package.json 中对应)
-		let niubi = vscode.commands.registerCommand('extension.niubi', function () {
+// 注册一个命令，命令名为 niubi (与package.json 中对应)
+let niubi = vscode.commands.registerCommand('extension.niubi', function () {
 
-			// 显示信息
-			vscode.window.showInformationMessage('niubi');
-		});
+	// 显示信息
+	vscode.window.showInformationMessage('niubi');
+});
 
-	    // 将刚刚注册的命令 push 到 上下文中
-		context.subscriptions.push(helloworld);
-		context.subscriptions.push(niubi);
-	}
-	
-	```
+// 将刚刚注册的命令 push 到 上下文中
+context.subscriptions.push(helloworld);
+context.subscriptions.push(niubi);
+}
+```
 
 ## 调试项目
 
@@ -154,22 +152,18 @@ extension.js
 打包插件的话需要安装vsce。
 
 
-	```shell
-	
-	npm i -g vsce
-	
-	```
+```shell
+npm i -g vsce
+```
 
 重新编写你插件的README文档，然后在根目录打包后缀为`vsix` 的 vscode 插件。
 
 
-	```shell
-	
-	vsve package
-	# 如果不修改你插件的readme文档的话会报下面的错误
-	# Error: Make sure to edit the README.md file before you publish your extension.
-	
-	```
+```shell
+vsve package
+# 如果不修改你插件的readme文档的话会报下面的错误
+# Error: Make sure to edit the README.md file before you publish your extension.
+```
 
 ## 发布
 
