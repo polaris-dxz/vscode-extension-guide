@@ -25,12 +25,12 @@
 3. 安装项目所需要的依赖
 
 	```shell
-	npm install 
+	npm install
 	```
-
+	
 4. 项目结构如下：
 
-	```
+	```php
 	.
 	├── CHANGELOG.md ## 修改记录
 	├── README.md ## 插件说明 README
