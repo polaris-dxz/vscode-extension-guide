@@ -21,7 +21,7 @@ npm install -g yo generator-code
 	#? Initialize a git repository? No
 	#? Which package manager to use? npm
 	```
-
+![yo code 脚手架](https://github.com/Yggdrasill-7C9/vscode-extension-guide/blob/master/screenshot/yo-code.png)
 3. 安装项目所需要的依赖
 
 	```shell
