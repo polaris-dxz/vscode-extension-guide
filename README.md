@@ -3,10 +3,10 @@
 
 1. 首先安装 yeoman 和 vscode generator脚手架（该项目是基于nodejs的，这里假设你已经装好node环境了）
 
-```shell
-# 安装 yeoman 和 generator-code 脚手架
-npm install -g yo generator-code
-```
+	```shell
+	# 安装 yeoman 和 generator-code 脚手架
+	npm install -g yo generator-code
+	```
 
 2. 用脚手架快速生成项目文件，按照提示正常填就可以了，这里我选择的是开发插件，语言我选择的是JavaScript
 
