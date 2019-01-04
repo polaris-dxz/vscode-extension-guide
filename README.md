@@ -21,7 +21,7 @@
 	#? Initialize a git repository? No
 	#? Which package manager to use? npm
 	```
-![yo code 脚手架](https://github.com/Yggdrasill-7C9/vscode-extension-guide/blob/master/screenshot/yo-code.png)
+![yo code 脚手架](https://github.com/Yggdrasill-7C9/vscode-extension-guide/raw/master/screenshot/yo-code.png)
 
 3. 安装项目所需要的依赖
 
@@ -53,29 +53,35 @@
 	
 	{   
 	
-		"name": "helloworld",// 项目名称
-		"displayName": "helloworld", //插件名称
-		"description": "",// 项目描述
-		"version": "0.0.1",//版本信息
-		"engines": {// 启动引擎
+		"name": "helloworld",
+		"displayName": "helloworld", 
+		"description": "",
+		"version": "0.0.1",
+		"publisher": "ms-vscode",
+		"author": {
+			"name": "yggdrasill-7c9"
+		},
+		"engines": {
 			"vscode": "^1.30.0"
 		},
 		"categories": [
 			"Other"
 		],
-	   // 激活事件列表，列举活跃的命令
+		"icon": "images/icon.png",
+		"galleryBanner": {
+			"color": "#C80000",
+			"theme": "dark"
+		},
 		"activationEvents": [
 			"onCommand:extension.helloWorld",
 			"onCommand:extension.niubi"
 		],
-	    // 插件入口文件   
 		"main": "./extension.js",
 		"contributes": {
-		// 注册指令信息
 			"commands": [
 				{
 					"command": "extension.helloWorld",
-					"title": "Hello World" // 指令名 
+					"title": "Hello World" 
 				},
 				{
 					"command": "extension.niubi",
@@ -87,19 +93,55 @@
 			"postinstall": "node ./node_modules/vscode/bin/install",
 			"test": "node ./node_modules/vscode/bin/test"
 		},
-	    // 开发依赖
 		"devDependencies": {
 			"typescript": "^3.1.4",
 			"vscode": "^1.1.25",
 			"eslint": "^4.11.0",
 			"@types/node": "^8.10.25",
 			"@types/mocha": "^2.2.42"
-		}
+		},
+		"license": "SEE LICENSE IN LICENSE.txt",
+		"bugs": {
+			"url": "https://github.com/Yggdrasill-7C9/vscode-extension-guide/issues",
+			"email": "yggdrasill-7c9@github.com"
+		},
+		"repository": {
+			"type": "git",
+			"url": "https://github.com/Yggdrasill-7C9/vscode-extension-guide.git"
+		},
+		"homepage": "https://github.com/Yggdrasill-7C9/vscode-extension-guide/blob/master/README.md"
 	}
 	
 	```
-	
-	
+
+| 名称                                                         | 是否必须 | 类型                                    | 说明                                                         |
+| ------------------------------------------------------------ | -------- | --------------------------------------- | ------------------------------------------------------------ |
+| `name`                                                       | 是       | `string`                                | 扩展名 - 应全部小写，不能有空格。                            |
+| `version`                                                    | 是       | `string`                                | 版本信息                                                     |
+| `publisher`                                                  | 是       | `string`                                | 发布者名字                                                   |
+| `engines`                                                    | 是       | `object`                                | 例如：`^0.10.5`表示与最小VS Code版本的兼容性`0.10.5`。       |
+| `license`                                                    |          | `string`                                | 请参阅[npm的文档](https://docs.npmjs.com/files/package.json#license)。如果您`LICENSE`的扩展名根目录中有文件，则值`license`应为`"SEE LICENSE IN <filename>"`。 |
+| `displayName`                                                |          | `string`                                | 市场中使用的扩展程序的显示名称。                             |
+| `description`                                                |          | `string`                                | 您的扩展程序的简要说明。                                     |
+| `categories`                                                 |          | `string[]`                              | 要用于扩展的类别允许值： `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]` |
+| `keywords`                                                   |          | `array`                                 | 一系列**关键字**，以便于查找扩展名。这些包含在Marketplace上的其他扩展**标记中**。此列表目前仅限于5个关键字。 |
+| `galleryBanner`                                              |          | `object`                                | 帮助格式化Marketplace标头以匹配您的图标。详情见下文。        |
+| `preview`                                                    |          | `boolean`                               | 将扩展名设置为在市场中标记为预览。                           |
+| `main`                                                       |          | `string`                                | 您的扩展程序的入口点。                                       |
+| [`contributes`](https://code.visualstudio.com/api/references/contribution-points) |          | `object`                                | 描述扩展名[贡献](https://code.visualstudio.com/api/references/contribution-points)的对象。 |
+| [`activationEvents`](https://code.visualstudio.com/api/references/activation-events) |          | `array`                                 | 此扩展的[激活事件](https://code.visualstudio.com/api/references/activation-events)数组。 |
+| `badges`                                                     |          | `array`                                 | 一系列[已批准的](https://code.visualstudio.com/api/references/extension-manifest#approved-badges)徽章，显示在Marketplace的扩展页面的侧边栏中。每个徽章都是一个包含3个属性的对象：`url`对于徽章的图片网址，`href`用户点击徽章时会关注的链接和`description`。 |
+| `markdown`                                                   |          | `string`                                | 控制市场中使用的Markdown渲染引擎。无论是`github`（默认）或`standard`。 |
+| `qna`                                                        |          | `marketplace`（默认）`string`,,,`false` | 控制市场中的**问答**链接。设置为`marketplace`启用默认的Marketplace Q＆A网站。设置为字符串以提供自定义问答网站的URL。设置为`false`完全禁用Q＆A。 |
+| `dependencies`                                               |          | `object`                                | 您的扩展需要的任何运行时Node.js依赖项。与[npm`dependencies`](https://docs.npmjs.com/files/package.json#dependencies)完全相同。 |
+| `devDependencies`                                            |          | `object`                                | 您的扩展需要的任何开发Node.js依赖项。与[npm`devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies)完全相同。 |
+| `extensionPack`                                              |          | `array`                                 | 带有此扩展名捆绑的扩展ID的数组。安装主扩展时将安装这些其他扩展。扩展的ID始终是`${publisher}.${name}`。例如：`vscode.csharp`。 |
+| `extensionDependencies`                                      |          | `array`                                 | 具有此扩展所依赖的扩展ID的数组。安装主扩展时将安装这些其他扩展。扩展的ID始终是`${publisher}.${name}`。例如：`vscode.csharp`。 |
+| `scripts`                                                    |          | `object`                                | 与[npm`scripts`](https://docs.npmjs.com/misc/scripts)完全相同，但具有额外的VS Code特定字段，例如[vscode：](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#prepublish-step)[prepublish](https://code.visualstudio.com/api/references/extension-manifest#extension-uninstall-hook)或[vscode：uninstall](https://code.visualstudio.com/api/references/extension-manifest#extension-uninstall-hook)。 |
+| `icon`                                                       |          | `string`                                | 图标的路径至少为128x128像素（Retina屏幕为256x256）。         |
+
+
+​	
 extension.js
 
 
