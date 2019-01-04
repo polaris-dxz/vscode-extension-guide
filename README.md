@@ -52,7 +52,7 @@
 	```json
 	
 	{   
-
+	
 		"name": "helloworld",// 项目名称
 		"displayName": "helloworld", //插件名称
 		"description": "",// 项目描述
@@ -98,7 +98,8 @@
 	}
 	
 	```
-
+	
+	
 extension.js
 
 
