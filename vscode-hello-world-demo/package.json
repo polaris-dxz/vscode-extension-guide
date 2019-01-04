@@ -1,0 +1,46 @@
+{
+	"name": "vscode-hello-world-demo",
+	"displayName": "vscode-hello-world-demo",
+	"publisher": "ms-vscode",
+	"description": "hello world demo",
+	"version": "0.0.1",
+	"author": {
+		"name": "yggdrasill-7c9"
+	},
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.helloWorld"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [{
+            "command": "extension.helloWorld",
+			"title": "Hello World"
+		}]
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25",
+		"eslint": "^4.11.0",
+		"@types/node": "^8.10.25",
+		"@types/mocha": "^2.2.42"
+	},
+	"bugs": {
+		"url": "https://github.com/Yggdrasill-7C9/vscode-extension-guide/issues",
+		"email": "xxx@xxx.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Yggdrasill-7C9/vscode-extension-guide.git"
+	},
+	"homepage": "https://github.com/Yggdrasill-7C9/vscode-extension-guide/blob/master/README.md"
+}
